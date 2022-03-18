@@ -1,0 +1,38 @@
+__Secure-3PSIDCC	AJi4QfHfKsDVpOfXvgGvTVnQ23QU5m063gR7KE-MP-LKvD6mEswA7wCXuzhXo41mVdR2FCtmeQ	.google.com	/	2023-03-18T09:23:28.166Z	90	✓	✓	None			High	
+SIDCC	AJi4QfF19wt3fT25n_OYgZHB2lR3akiE6A54b-ieAM9GA37OH8gsm-1fxiEZADOFckchVQFJvjA	.google.com	/	2023-03-18T09:12:09.833Z	80						High	
+__Secure-3PAPISID	pSUkyJ_v9U7cF-3Y/AD3uptlKiy7GlHnKR	.google.com	/	2024-03-17T07:56:29.343Z	51		✓	None			High	
+__Secure-1PAPISID	pSUkyJ_v9U7cF-3Y/AD3uptlKiy7GlHnKR	.google.com	/	2024-03-17T07:56:29.343Z	51		✓		✓		High	
+SAPISID	pSUkyJ_v9U7cF-3Y/AD3uptlKiy7GlHnKR	.google.com	/	2024-03-17T07:56:29.343Z	41		✓				High	
+__Secure-1PSID	IQjH5f0edGDBu__oNcZnnciOo7e3K0XK8DOShYJMglomuhxAkcu6qLtdS8hW1KjgH3yOrA.	.google.com	/	2024-03-17T07:56:29.342Z	85	✓	✓		✓		High	
+SID	IQjH5f0edGDBu__oNcZnnciOo7e3K0XK8DOShYJMglomuhxALFKRgUYAH-ROId2HMSQ9wg.	.google.com	/	2024-03-17T07:56:29.342Z	74						High	
+SSID	A6pRT5lUfP6qiN6jC	.google.com	/	2024-03-17T07:56:29.342Z	21	✓	✓				High	
+__Secure-3PSID	IQjH5f0edGDBu__oNcZnnciOo7e3K0XK8DOShYJMglomuhxAqgpFd9aF9aqdLhNCMvLg-g.	.google.com	/	2024-03-17T07:56:29.342Z	85	✓	✓	None			High	
+APISID	BJtu5jO4-F_e-LIZ/AFafj8VhYwtRVZ538	.google.com	/	2024-03-17T07:56:29.342Z	40						High	
+HSID	Av_zOSwWvJVK07U6G	.google.com	/	2024-03-17T07:56:29.342Z	21	✓					High	
+UULE	a+cm9sZTogMQpwcm9kdWNlcjogMTIKdGltZXN0YW1wOiAxNjQ3NTk0NzI2MjAxMDAwCmxhdGxuZyB7CiAgbGF0aXR1ZGVfZTc6IDM0MTQzMTAwMAogIGxvbmdpdHVkZV9lNzogLTExODAyMjUxNTMKfQpyYWRpdXM6IDkzODEuODQKcHJvdmVuYW5jZTogNgo=	www.google.com	/	2022-03-18T15:12:06.000Z	198		✓				Medium	
+1P_JAR	2022-03-18-09	.google.com	/	2022-04-17T09:12:06.186Z	19		✓	None			Medium	
+NID	511=bFpwxvkkMM6RoJAW-40-vz5w6fQeO6W2VCYcdnMS5h17Lb48a4eAU0LpmEIb214xOpREhiY--YJRaIXoCDAx902y05JANREk8Y0v0NrNWm1P4j9YSykm8r-kmsL5_8X3K77f5SG4toj9gTkulg6aBVo8crxfovX4h7De0y0XOAeE_p1Yd26O9Ab4npoMkTvX-j22qtqJFUUGzs987gpj8L05fynkQyt0IWnpx_CX-9cT9SqW7s3FzWN1WU8vLc84ue5m9ZZFoRCpDkUCNe34Cop5yvRGiyJl1YxoH9Mqir8VaI-nggkthGlhOTxThX-LdDiwDxavFUV-	.google.com	/	2022-09-17T07:41:22.144Z	339	✓	✓	None			Medium	
+OTZ	6420722_84_88_104280_84_446940	www.google.com	/	2022-04-16T20:02:21.000Z	33		✓				Medium	
+cookieconsent_status	dismiss	www.theeroticreview.com	/	2023-03-18T07:45:54.000Z	27						Medium	
+MsTerCounter	3	www.theeroticreview.com	/	2023-03-18T09:24:43.027Z	13						Medium	
+TER%5FSearchGeoCityName	Los+Angeles%2C+CA	www.theeroticreview.com	/	2023-03-18T07:58:22.514Z	40						Medium	
+_gat	1	.theeroticreview.com	/	2022-03-18T09:25:39.000Z	5						Medium	
+TER%5FSearchGeoCityId	city%2Dlos%2Dangeles%2Dca%2Dus	www.theeroticreview.com	/	2023-03-18T07:58:22.514Z	51						Medium	
+TER%5Fhash	8OdI913oxsEJLWRRLLYHQSUKneB8L6vGp%2Fa8SadMjdx4QzatOvcGQJSnWZs714eWQcwwvCwEn%2BaSiXouCSMPzg%3D%3D	www.theeroticreview.com	/	2023-03-18T09:24:42.609Z	106						Medium	
+tz	Mountain+Standard+Time	www.theeroticreview.com	/	2023-03-17T23:00:00.609Z	24						Medium	
+TERLocationResolved	1	www.theeroticreview.com	/	2023-03-18T07:40:45.401Z	20						Medium	
+TER%5Fusername	mingraham	www.theeroticreview.com	/	2023-03-18T09:24:42.609Z	23						Medium	
+GUID	50F31C874B263F42B6BABCC369D63E86	www.theeroticreview.com	/	Session	36						Medium	
+terAgreementVer	1	www.theeroticreview.com	/	2023-03-17T23:00:01.578Z	16						Medium	
+SEARCH_SAMESITE	CgQI4ZQB	.google.com	/	2022-08-17T21:11:02.185Z	23			Strict			Medium	
+TER%5Fsplash	1	www.theeroticreview.com	/	Session	13						Medium	
+_gid	GA1.2.163485560.1647589240	.theeroticreview.com	/	2022-03-19T09:24:43.000Z	30						Medium	
+MsTerVer	6	www.theeroticreview.com	/	2023-03-18T07:45:15.665Z	9						Medium	
+TER%5FRememberPW	1	www.theeroticreview.com	/	2023-03-18T09:24:42.609Z	17						Medium	
+K-GUID-pocpghie	75786CB947B962272D8E612FBCB3C1EB	www.theeroticreview.com	/	Session	47						Medium	
+language	en	www.theeroticreview.com	/	2023-03-18T09:24:42.609Z	10						Medium	
+TER%5FtestCookie		www.theeroticreview.com	/	2023-03-18T09:24:40.609Z	16						Medium	
+AEC	AVQQ_LBpvdT3U9R5Tl_YdbZO56yDuKu5R8yJAOCq0h0anTe_8hE-fhSCmg8	.google.com	/	2022-09-14T07:40:55.479Z	62	✓	✓	Lax			Medium	
+_ga	GA1.2.136954141.1647589240	.theeroticreview.com	/	2024-03-17T09:24:43.000Z	29						Medium	
+TerTzOffset	-420	www.theeroticreview.com	/	2023-03-18T07:40:46.000Z	15						Medium	
+MPA3	1	.theeroticreview.com	/	2022-03-21T08:24:42.294Z	5						Medium	
