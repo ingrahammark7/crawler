@@ -17,7 +17,6 @@ public class takefile {
 	}
 
 	public void getfile() throws Exception {
-
 		Class clazz = takefile.class;
 		InputStream inputStream = clazz.getResourceAsStream("/templates/c.txt");
 		String s = readFromInputStream(inputStream);
@@ -32,13 +31,18 @@ public class takefile {
 					vals.put(arr[9], arr[10]);
 				}
 		}
-		Set<String> keys = vals.keySet();
-		Iterator<String> it = keys.iterator();
+	}
+
+	public static String[] getset() {
+		Set<String> values = vals.keySet();
+		String[] arr = new String[values.size()];
+		Iterator<String> it = values.iterator();
+		int i = 0;
 		while (it.hasNext()) {
-			String s1 = it.next();
-			String s2 = vals.get(s1);
-			System.out.println("key " + s1 + " value " + s2);
+			arr[i] = it.next();
+			i = i + 1;
 		}
+		return arr;
 	}
 
 	private String readFromInputStream(InputStream inputStream) throws IOException {
