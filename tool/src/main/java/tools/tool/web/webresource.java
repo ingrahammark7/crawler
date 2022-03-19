@@ -21,30 +21,50 @@ public class webresource {
 			Iterator<String> it = links.keySet().iterator();
 			while (it.hasNext()) {
 				String t = (String) it.next();
+				System.out.println("doing sublinks " + t);
 				String count = links.get(t);
 				dosublinks(t, count);
 			}
 		}
 	}
 
+	public static HashMap<String, String> removelinks(HashMap<String, String> in) {
+		HashMap<String, String> res = new HashMap<String, String>();
+		Iterator<String> keys = in.keySet().iterator();
+		int i = 0;
+		while (keys.hasNext()) {
+			if (i < 5) {
+				keys.next();
+				i = i + 1;
+				continue;
+			}
+			i = i + 1;
+			String s = keys.next();
+			res.put(s, in.get(s));
+		}
+		return res;
+	}
+
 	public static void dosublinks(String t, String count) throws Exception {
-		String r = request(t);
+		String originalt = t;
 		count = count.replace(" ", "");
 		int pages = (Integer.parseInt(count)) / 10;
 		pages = pages + 1;
 		for (int i = 0; i < pages; ++i) {
 			int bar = i + 1;
-			String tempr = r + "?page=" + bar + "#Review";
+			String tempr = originalt + "?page=" + bar + "#Review";
+			System.out.println("request is " + tempr);
+			tempr = request(tempr);
 			HashMap<String, String> test = getsublink(tempr);
+			System.out.println("page " + i + " of " + pages);
 			Iterator<String> it = test.keySet().iterator();
-			System.out.println("pages of review is " + i);
 			while (it.hasNext()) {
 				String foo = (String) it.next();
+				System.out.println("requesting " + foo);
 				foo = request(foo);
-				// System.out.println("final result " + foo);
 				String stamp = String.valueOf(System.currentTimeMillis());
-				writefile(foo, stamp);
-				Thread.sleep(10000);
+				writefile(foo, stamp + ".txt");
+				Thread.sleep(1000);
 			}
 		}
 	}
@@ -59,7 +79,6 @@ public class webresource {
 		String[] links = r.split("/reviews/");
 		HashMap<String, String> map = new HashMap<String, String>();
 		for (int i = 1; i < links.length; ++i) {
-			System.out.println("top link is " + i);
 			String t = links[i];
 			String[] t1 = t.split("\"");
 			t = t1[0];
@@ -67,7 +86,6 @@ public class webresource {
 				continue;
 			}
 			for (int i1 = 0; i1 < t1.length; ++i1) {
-				System.out.println("sublink is " + i1);
 				String temp = t1[i1];
 				if (temp.contains("detail")) {
 					map.put("/reviews/" + t, "");
@@ -84,7 +102,6 @@ public class webresource {
 		String[] links = r.split("/reviews/");
 		HashMap<String, String> map = new HashMap<String, String>();
 		for (int i = 1; i < links.length; ++i) {
-			System.out.println("first link is " + i);
 			String t = links[i];
 			String[] t1 = t.split("\"");
 			t = t1[0];
@@ -92,7 +109,6 @@ public class webresource {
 				continue;
 			String getrev = "";
 			for (int i1 = 0; i1 < t1.length; ++i1) {
-				System.out.println("intermeidate link is " + i1);
 				String temp = t1[i1];
 				if (temp.contains("reviews")) {
 					getrev = temp.split("reviews")[0];
@@ -111,7 +127,7 @@ public class webresource {
 		String site2 = url;
 		HttpURLConnection conn2 = (HttpURLConnection) new URL(site + site2).openConnection();
 		conn2.setRequestProperty("cookie",
-				"MPA3=1; _ga=GA1.2.136954141.1647589240; _gid=GA1.2.163485560.1647589240; terAgreementVer=1; TERLocationResolved=1; TerTzOffset=-420; TER%5FtestCookie=; language=en; TER%5FRememberPW=1; MsTerVer=6; cookieconsent_status=dismiss; TER%5Fusername=mingraham; TER%5Fhash=8OdI913oxsEJLWRRLLYHQSUKneB8L6vGp%2Fa8SadMjdx4QzatOvcGQJSnWZs714eWQcwwvCwEn%2BaSiXouCSMPzg%3D%3D; tz=Mountain+Standard+Time; TER%5FSearchGeoCityName=Los+Angeles%2C+CA; TER%5FSearchGeoCityId=city%2Dlos%2Dangeles%2Dca%2Dus; Upgraded=1; MsTerCounter=6; GUID=3FD5F08F2976EF4B865BD569A27AE8D2; K-GUID-pocpghie=EF52F02D2E1F7BF552CF4BAD934A6471; TER%5Fsplash=1; _gat=1");
+				"MPA3=1; _ga=GA1.2.136954141.1647589240; _gid=GA1.2.163485560.1647589240; terAgreementVer=1; TERLocationResolved=1; TerTzOffset=-420; TER%5FtestCookie=; language=en; TER%5FRememberPW=1; MsTerVer=6; cookieconsent_status=dismiss; TER%5Fusername=mingraham; TER%5Fhash=8OdI913oxsEJLWRRLLYHQSUKneB8L6vGp%2Fa8SadMjdx4QzatOvcGQJSnWZs714eWQcwwvCwEn%2BaSiXouCSMPzg%3D%3D; tz=Mountain+Standard+Time; TER%5FSearchGeoCityName=Los+Angeles%2C+CA; TER%5FSearchGeoCityId=city%2Dlos%2Dangeles%2Dca%2Dus; Upgraded=1; MsTerCounter=6; TER%5Fsplash=1; _gat=1; GUID=14B5E0568BE8974DA863F226C9133C99; K-GUID-pocpghie=EF52F02D2E1F7BF552CF4BAD934A6471");
 		return doreq(conn2);
 	}
 
