@@ -9,7 +9,11 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import tools.tool.mousetools.mousetools;
+
 public class webresource {
+
+	public static int wait = 500;
 
 	public static void doweb() throws Exception {
 		String site1 = "/reviews/newreviewsList.asp?Valid=1&mp=0&searchid=354229&SortBy=3&searchreview=1&Ethnicities=4&Transsexual=1&gCity=city-los-angeles-ca-us&gDistance=3&gCityName=Los%20Angeles,%20CA";
@@ -64,7 +68,6 @@ public class webresource {
 				foo = request(foo);
 				String stamp = String.valueOf(System.currentTimeMillis());
 				writefile(foo, stamp + ".txt");
-				Thread.sleep(1000);
 			}
 		}
 	}
@@ -125,10 +128,16 @@ public class webresource {
 	public static String request(String url) throws Exception {
 		String site = "https://www.theeroticreview.com";
 		String site2 = url;
+		String logouturl = "https://www.theeroticreview.com/memberlaunch/logout.asp?logout=yes";
 		HttpURLConnection conn2 = (HttpURLConnection) new URL(site + site2).openConnection();
-		conn2.setRequestProperty("cookie",
-				"MPA3=1; _ga=GA1.2.136954141.1647589240; _gid=GA1.2.163485560.1647589240; terAgreementVer=1; TERLocationResolved=1; TerTzOffset=-420; TER%5FtestCookie=; language=en; TER%5FRememberPW=1; MsTerVer=6; cookieconsent_status=dismiss; TER%5Fusername=mingraham; TER%5Fhash=8OdI913oxsEJLWRRLLYHQSUKneB8L6vGp%2Fa8SadMjdx4QzatOvcGQJSnWZs714eWQcwwvCwEn%2BaSiXouCSMPzg%3D%3D; tz=Mountain+Standard+Time; TER%5FSearchGeoCityName=Los+Angeles%2C+CA; TER%5FSearchGeoCityId=city%2Dlos%2Dangeles%2Dca%2Dus; Upgraded=1; MsTerCounter=6; TER%5Fsplash=1; _gat=1; GUID=14B5E0568BE8974DA863F226C9133C99; K-GUID-pocpghie=EF52F02D2E1F7BF552CF4BAD934A6471");
+		HttpURLConnection logoutconn = (HttpURLConnection) new URL(logouturl).openConnection();
+		doreq(logoutconn);
+		dologin();
 		return doreq(conn2);
+	}
+
+	public static void dologin() throws Exception {
+		mousetools.dologin();
 	}
 
 	public static String doreq(HttpURLConnection con) throws Exception {
@@ -141,7 +150,8 @@ public class webresource {
 				response.append(inputLine);
 			}
 			in.close();
-			return response.toString();
+			String str = response.toString();
+			return str;
 		} else {
 			System.out.println("failed request");
 		}
