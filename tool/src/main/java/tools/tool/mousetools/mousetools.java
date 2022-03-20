@@ -86,13 +86,12 @@ public class mousetools {
 	}
 
 	public static String copyscreen(Robot bot) throws Exception {
-		cli(bot, 596, 147, wait);
+		cli(bot, 14, 561, wait);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_C);
 		Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
 		String foo = (String) clip.getData(DataFlavor.stringFlavor);
 		if (foo.contains("Oklahoma")) {
-			System.out.println("eixt");
 			System.exit(0);
 		}
 		return foo;
@@ -102,7 +101,8 @@ public class mousetools {
 		Robot bot = new Robot();
 		copyscreen(bot);
 		String base = "http://www.theeroticreview.com";
-		path = base + path;
+		if (!path.contains("http"))
+			path = base + path;
 		StringSelection ss = new StringSelection(path);
 		Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clip.setContents(ss, null);
@@ -112,12 +112,14 @@ public class mousetools {
 		dopress(bot, KeyEvent.VK_ENTER);
 		System.out.println("doing paste" + path);
 		Thread.sleep(3000);
+		if (!path.contains("review"))
+			return "";
 		cli(bot, 1500, 524, wait);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_U);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_C);
 		String foo = "";
 		foo = (String) clip.getData(DataFlavor.stringFlavor);
-		System.out.println("getting foo " + foo);
 		return foo;
 	}
 

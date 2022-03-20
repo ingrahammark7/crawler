@@ -2,8 +2,6 @@ package tools.tool.web;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -50,6 +48,7 @@ public class webresource {
 	public static void dosublinks(String t, String count) throws Exception {
 		String originalt = t;
 		count = count.replace(" ", "");
+		count = count.replace("\n", "");
 		int pages = (Integer.parseInt(count)) / 10;
 		pages = pages + 1;
 		for (int i = 0; i < pages; ++i) {
@@ -126,17 +125,14 @@ public class webresource {
 	public static String request(String url) throws Exception {
 		String site = "https://www.theeroticreview.com";
 		String site2 = url;
-		HttpURLConnection conn2 = (HttpURLConnection) new URL(site + site2).openConnection();
 		if (mousetools.checktime())
 			relog();
-		conn2.setRequestProperty("cookie", mousetools.cookie);
-		return doreq(conn2);
+		return doreq(site + site2);
 	}
 
 	public static void relog() throws Exception {
 		String logouturl = "https://www.theeroticreview.com/memberlaunch/logout.asp?logout=yes";
-		HttpURLConnection logoutconn = (HttpURLConnection) new URL(logouturl).openConnection();
-		doreq(logoutconn);
+		doreq(logouturl);
 		dologin();
 	}
 
@@ -144,8 +140,8 @@ public class webresource {
 		mousetools.dologin();
 	}
 
-	public static String doreq(HttpURLConnection con) throws Exception {
-		String pat = con.getURL().getPath();
+	public static String doreq(String con) throws Exception {
+		String pat = con;
 		return mousetools.dourl(pat);
 	}
 
