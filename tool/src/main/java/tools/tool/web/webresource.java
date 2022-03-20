@@ -128,12 +128,18 @@ public class webresource {
 	public static String request(String url) throws Exception {
 		String site = "https://www.theeroticreview.com";
 		String site2 = url;
-		String logouturl = "https://www.theeroticreview.com/memberlaunch/logout.asp?logout=yes";
 		HttpURLConnection conn2 = (HttpURLConnection) new URL(site + site2).openConnection();
+		if (mousetools.checktime())
+			relog();
+		conn2.setRequestProperty("cookie", mousetools.cookie);
+		return doreq(conn2);
+	}
+
+	public static void relog() throws Exception {
+		String logouturl = "https://www.theeroticreview.com/memberlaunch/logout.asp?logout=yes";
 		HttpURLConnection logoutconn = (HttpURLConnection) new URL(logouturl).openConnection();
 		doreq(logoutconn);
 		dologin();
-		return doreq(conn2);
 	}
 
 	public static void dologin() throws Exception {

@@ -12,6 +12,23 @@ public class mousetools {
 
 	public static int wait = 500;
 	public static int shortwait = 100;
+	public static String cookie = "";
+	public static Long lastlog = 0L;
+	public static Long loginwait = 1000000L;
+
+	public static Boolean checktime() {
+		Long now = System.currentTimeMillis();
+		if (lastlog == 0L) {
+			lastlog = now;
+			return true;
+		}
+		Long diff = now - lastlog;
+		if (diff > loginwait) {
+			lastlog = now;
+			return true;
+		}
+		return false;
+	}
 
 	public static void dologin() throws Exception {
 		Robot bot = new Robot();
@@ -24,7 +41,13 @@ public class mousetools {
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_V);
 		dopress(bot, KeyEvent.VK_ENTER);
 		Thread.sleep(3000);
-		cli(bot, 1022, 560, wait);
+		cli(bot, 994, 492, wait);
+		cli(bot, 994, 492, wait);
+		Thread.sleep(1000);
+		docaptcha(bot);
+		docaptcha(bot);
+		docaptcha(bot);
+		// at intro screen
 		dopress(bot, KeyEvent.VK_F12);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_R);
 		cli(bot, 1909, 324, wait);
@@ -38,7 +61,22 @@ public class mousetools {
 		dopress(bot, KeyEvent.VK_F12);
 		String foo = "";
 		foo = (String) clip.getData(DataFlavor.stringFlavor);
-		System.out.println(foo);
+		foo = foo.split("cookie:")[1];
+		foo = foo.split("dnt:")[0];
+		cookie = foo;
+		cookie = cookie.replace("\n", "");
+		if (cookie.substring(0, 1).equals(" ")) {
+			cookie = cookie.substring(1);
+		}
+	}
+
+	public static void docaptcha(Robot bot) throws Exception {
+		cli(bot, 1022, 560, wait); // do captcha
+		cli(bot, 1022, 560, wait);
+		Thread.sleep(1000);
+		cli(bot, 938, 550, wait);
+		cli(bot, 938, 550, wait);
+		Thread.sleep(1000);
 	}
 
 	public static void dopress(Robot bot, int event) throws InterruptedException {

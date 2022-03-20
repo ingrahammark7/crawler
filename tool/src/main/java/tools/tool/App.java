@@ -3,12 +3,11 @@ package tools.tool;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
-import tools.tool.mousetools.mousetools;
+import tools.tool.web.webresource;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-		// webresource.doweb();
-		mousetools.dologin();
+		webresource.doweb();
 		// while (true)
 		// getpos();
 	}
