@@ -1,9 +1,7 @@
 package tools.tool.web;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -147,22 +145,8 @@ public class webresource {
 	}
 
 	public static String doreq(HttpURLConnection con) throws Exception {
-		int responseCode = con.getResponseCode();
-		if (responseCode == HttpURLConnection.HTTP_OK) { // success
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			String inputLine;
-			StringBuffer response = new StringBuffer();
-			while ((inputLine = in.readLine()) != null) {
-				response.append(inputLine);
-			}
-			in.close();
-			String str = response.toString();
-			return str;
-		} else {
-			System.out.println("failed request");
-		}
-		return "";
-
+		String pat = con.getURL().getPath();
+		return mousetools.dourl(pat);
 	}
 
 }

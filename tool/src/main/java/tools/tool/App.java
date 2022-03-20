@@ -8,8 +8,6 @@ import tools.tool.web.webresource;
 public class App {
 	public static void main(String[] args) throws Exception {
 		webresource.doweb();
-		// while (true)
-		// getpos();
 	}
 
 	public static void getpos() throws InterruptedException {

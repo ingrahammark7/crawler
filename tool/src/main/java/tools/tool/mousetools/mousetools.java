@@ -1,5 +1,6 @@
 package tools.tool.mousetools;
 
+import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -48,6 +49,11 @@ public class mousetools {
 		docaptcha(bot);
 		docaptcha(bot);
 		// at intro screen
+
+	}
+
+	public static void docookie(Robot bot) throws Exception {
+		Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
 		dopress(bot, KeyEvent.VK_F12);
 		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_R);
 		cli(bot, 1909, 324, wait);
@@ -77,6 +83,42 @@ public class mousetools {
 		cli(bot, 938, 550, wait);
 		cli(bot, 938, 550, wait);
 		Thread.sleep(1000);
+	}
+
+	public static String copyscreen(Robot bot) throws Exception {
+		cli(bot, 596, 147, wait);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_C);
+		Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+		String foo = (String) clip.getData(DataFlavor.stringFlavor);
+		if (foo.contains("Oklahoma")) {
+			System.out.println("eixt");
+			System.exit(0);
+		}
+		return foo;
+	}
+
+	public static String dourl(String path) throws AWTException, Exception {
+		Robot bot = new Robot();
+		copyscreen(bot);
+		String base = "http://www.theeroticreview.com";
+		path = base + path;
+		StringSelection ss = new StringSelection(path);
+		Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clip.setContents(ss, null);
+		cli(bot, 596, 47, wait);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_V);
+		dopress(bot, KeyEvent.VK_ENTER);
+		System.out.println("doing paste" + path);
+		Thread.sleep(3000);
+		cli(bot, 1500, 524, wait);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
+		doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_C);
+		String foo = "";
+		foo = (String) clip.getData(DataFlavor.stringFlavor);
+		System.out.println("getting foo " + foo);
+		return foo;
 	}
 
 	public static void dopress(Robot bot, int event) throws InterruptedException {
