@@ -77,9 +77,17 @@ public class mousetools {
 	}
 
 	public static void docaptcha(Robot bot) throws Exception {
-		cli(bot, 1022, 560, wait); // do captcha
-		cli(bot, 1022, 560, wait);
-		Thread.sleep(1000);
+		int solving = 0;
+		while (solving == 0) {
+			doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_A);
+			doCombo(bot, KeyEvent.VK_CONTROL, KeyEvent.VK_C);
+			Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+			String foo = (String) clip.getData(DataFlavor.stringFlavor);
+			if (foo.contains("Solving")) {
+				Thread.sleep(1000);
+			}
+			solving = 1;
+		}
 		cli(bot, 938, 550, wait);
 		cli(bot, 938, 550, wait);
 		Thread.sleep(1000);
@@ -93,6 +101,9 @@ public class mousetools {
 		String foo = (String) clip.getData(DataFlavor.stringFlavor);
 		if (foo.contains("Oklahoma")) {
 			System.exit(0);
+		}
+		if (foo.contains("Verification")) {
+			dologin();
 		}
 		return foo;
 	}
