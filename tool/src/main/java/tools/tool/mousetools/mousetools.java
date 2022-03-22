@@ -48,7 +48,6 @@ public class mousetools {
 		docaptcha(bot);
 		docaptcha(bot);
 		docaptcha(bot);
-		// at intro screen
 
 	}
 

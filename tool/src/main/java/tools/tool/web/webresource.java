@@ -12,7 +12,11 @@ public class webresource {
 	public static int wait = 500;
 
 	public static void doweb() throws Exception {
-		String site1 = "/reviews/newreviewsList.asp?Valid=1&mp=0&searchid=354229&SortBy=3&searchreview=1&Ethnicities=4&Transsexual=1&gCity=city-los-angeles-ca-us&gDistance=3&gCityName=Los%20Angeles,%20CA";
+		// LA
+		// String site1 =
+		// "/reviews/newreviewsList.asp?Valid=1&mp=0&searchid=354229&SortBy=3&searchreview=1&Ethnicities=4&Transsexual=1&gCity=city-los-angeles-ca-us&gDistance=3&gCityName=Los%20Angeles,%20CA";
+		// SF
+		String site1 = "/reviews/newreviewsList.asp?Valid=1&mp=0&searchid=354401&SortBy=3&searchreview=1&Ethnicities=4&Transsexual=1&gCity=city-san-francisco-ca-us&gDistance=3&gCityName=San%20Francisco,%20CA";
 		for (int i = 0; i < 10; ++i) {
 			System.out.println("top level loop is " + i);
 			int bar = i + 1;
@@ -26,23 +30,6 @@ public class webresource {
 				dosublinks(t, count);
 			}
 		}
-	}
-
-	public static HashMap<String, String> removelinks(HashMap<String, String> in) {
-		HashMap<String, String> res = new HashMap<String, String>();
-		Iterator<String> keys = in.keySet().iterator();
-		int i = 0;
-		while (keys.hasNext()) {
-			if (i < 5) {
-				keys.next();
-				i = i + 1;
-				continue;
-			}
-			i = i + 1;
-			String s = keys.next();
-			res.put(s, in.get(s));
-		}
-		return res;
 	}
 
 	public static void dosublinks(String t, String count) throws Exception {
